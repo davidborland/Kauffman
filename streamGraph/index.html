@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>U.S. Entrepreneurial Ecosystem: Streamgraph</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <script src="lib/d3.v4.min.js"></script>
+  <script src="js/streamGraph.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+  <h1>U.S. Entrepreneurial Ecosystem</h1>
+  <h2>Streamgraph</h2>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <h4>Firm age:</h4>
+      <select class="form-control" id="firmAgeSelect"></select>
+      <br>
+      <h4>Metric:</h4>
+      <select class="form-control" id="metricSelect"></select>
+    </div>
+    <div class="col-sm-10  panel panel-default">
+      <svg id="streamGraph" width="100%" height=600>
+        <g></g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+d3.csv("data/Firm_Age_by_State.csv", function(error, data) {
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  streamGraph(data);
+});
+
+</script>
+
+</body>
+</html>

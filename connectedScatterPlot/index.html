@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>U.S. Entrepreneurial Ecosystem: Connected Scatter Plot</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <script src="lib/d3.v4.min.js"></script>
+  <script src="lib/d3-scale-chromatic.v1.min.js"></script>
+  <script src="js/connectedScatterPlot.js"></script>
+  <script src="js/d3.pointDrag.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <style>
+    .tooltip.in {
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+  <h1>U.S. Entrepreneurial Ecosystem</h1>
+  <h2>Connected Scatter Plot</h2>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <h4>Firm age:</h4>
+      <select class="form-control" id="firmAgeSelect"></select>
+      <br>
+      <h4>X axis:</h4>
+      <select class="form-control" id="xAxisSelect"></select>
+      <br>
+      <h4>Y axis:</h4>
+      <select class="form-control" id="yAxisSelect"></select>
+      <br>
+      <h4>Highlight window:</h4>
+      <form class="form-inline">
+        <input type="range" class="form-control" id="highlightWindowRange" name="highlightWindowRange" value="4" step="2"></input>
+        <label id="highlightWindowLabel" for="highlightWindowRange"></label>
+      </form>
+      <br>
+      <h4>Drag type:</h4>
+      <select class="form-control" id="dragSelect"></select>
+    </div>
+    <div class="col-sm-8  panel panel-default">
+      <svg id="connectedScatterPlot" width="100%" height=600>
+        <defs>
+          <marker id="Triangle"
+            viewBox="0 0 10 10" refX="3" refY="5"
+            markerUnits="strokeWidth"
+            markerWidth="8" markerHeight="4"
+            orient="auto">
+            <path d="M 0 0 L 15 5 L 0 10 z" />
+          </marker>
+        </defs>
+        <g></g>
+      </svg>
+    </div>
+    <div class="col-sm-2">
+      <div class="row text-center">
+        <div class="btn-group " role="group">
+          <button type="button" id="allButton" class="btn btn-default">All</button>
+          <button type="button" id="noneButton" class="btn btn-default">None</button>
+          <button type="button" id="highlightedButton" class="btn btn-default">Highlighted</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6" id="stateCheckboxes1"></div>
+        <div class="col-sm-6" id="stateCheckboxes2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+d3.csv("data/Firm_Age_by_State.csv", function(error, data) {
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  connectedScatterPlot(data);
+});
+
+</script>
+
+</body>
+</html>

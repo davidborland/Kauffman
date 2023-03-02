@@ -1,6 +1,6 @@
 # Kauffman
 Visualizations developed for a Kauffman Foundation project
 
-![image](https://user-images.githubusercontent.com/289957/222522209-60f4ae6f-365d-4260-aa7f-0109869fdb58.png)
+![image](https://user-images.githubusercontent.com/289957/222542918-5b43a3a3-b15b-4edd-af7d-ee224af3d33d.png)
 
-![image](https://user-images.githubusercontent.com/289957/222522239-79f1594a-22e0-490e-9fb2-39b2b63a09b4.png)
+![image](https://user-images.githubusercontent.com/289957/222542863-259b60d4-756f-4dfa-bc9b-5e3cf6f93c88.png)
